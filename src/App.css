@@ -1,0 +1,83 @@
+/* Global
+/* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.App-error {
+  color: red;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Todos
+/* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
+
+.Todo-app {
+  padding-top: 20px;
+  display: inline-block;
+  text-align: left;
+}
+
+.Todo__list {
+  list-style: none;
+  padding: 0;
+}
+
+.delete-item {
+  visibility: hidden;
+}
+
+.delete-item a {
+  text-decoration: none;
+  color: red;
+}
+
+.Todo__li:hover .delete-item {
+  visibility: visible;
+}
+
+/* Todos
+/* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
+
+.Footer {
+  padding: 3em 0;
+  background: #222;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.Footer a {
+  padding: 0 1em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.Footer a.active {
+  color: #62dbfb;
+}
