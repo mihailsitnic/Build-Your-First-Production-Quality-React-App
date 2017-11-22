@@ -19,6 +19,16 @@
       "id": 4,
       "name": "Setup Fetch",
       "isComplete": false
+    },
+    {
+      "id": 46511,
+      "name": "Hello, React!",
+      "isComplete": false
+    },
+    {
+      "id": 95703,
+      "name": "Hello, World!",
+      "isComplete": false
     }
   ]
 }
