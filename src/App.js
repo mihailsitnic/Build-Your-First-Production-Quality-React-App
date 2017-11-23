@@ -5,7 +5,7 @@ import {TodoForm, TodoList, Footer} from './components/todo'
 import {addTodo, generateId, findById, toggleTodo, updateTodo, removeTodo, filterTodos} from './lib/todoHelpers'
 import {pipe, partial} from './lib/utils'
 import PropTypes from 'prop-types'
-import {loadTodos, createTodo} from './lib/todoService'
+import {loadTodos, createTodo, saveTodo} from './lib/todoService'
 
 class App extends Component {
   state = {
@@ -29,11 +29,15 @@ class App extends Component {
   }
 
   handleToggle = (id) => {
-    const getUpdatedTodos = pipe(findById, toggleTodo, partial(updateTodo, this.state.todos))
-    const updatedTodos = getUpdatedTodos(id, this.state.todos)
+    const getToggleTodo = pipe(findById, toggleTodo)
+    const updated = getToggleTodo(id, this.state.todos)
+    const getUpdatedTodos = partial(updateTodo, this.state.todos)
+    const updatedTodos = getUpdatedTodos(updated)
     this.setState({
       todos: updatedTodos
     })
+    saveTodo(updated)
+      .then(() => this.showTempMessage('Todo Updated'))
   }
 
   handleSubmit = (evt) => {
@@ -51,7 +55,12 @@ class App extends Component {
       errorMessage: ''
     })
     createTodo(newTodo)
-      .then(() => console.log('Todo added'))
+      .then(() => this.showTempMessage('Todo added'))
+  }
+
+  showTempMessage = (msg) => {
+    this.setState({message: msg})
+    setTimeout(() => this.setState({message: ''}), 2500)
   }
 
   handleEmptySubmit = (evt) => {
@@ -81,6 +90,7 @@ class App extends Component {
 
         <div className="Todo-app">
           {this.state.errorMessage && <span className="App-error">{this.state.errorMessage}</span>}
+          {this.state.message && <span className="App-success">{this.state.message}</span>}
           <TodoForm
             handleInputChange={this.handleInputChange}
             currentTodo={this.state.currentTodo}

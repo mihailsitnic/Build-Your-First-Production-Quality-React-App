@@ -25,6 +25,10 @@
   font-size: large;
 }
 
+.App-success {
+  color: green;
+}
+
 .App-error {
   color: red;
 }

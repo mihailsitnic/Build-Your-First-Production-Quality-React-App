@@ -28,7 +28,32 @@
     {
       "id": 95703,
       "name": "Hello, World!",
+      "isComplete": true
+    },
+    {
+      "id": 55927,
+      "name": "Nicolai",
       "isComplete": false
+    },
+    {
+      "id": 15421,
+      "name": "add new todo",
+      "isComplete": true
+    },
+    {
+      "id": 75037,
+      "name": "Yo!",
+      "isComplete": false
+    },
+    {
+      "id": 52051,
+      "name": "React",
+      "isComplete": false
+    },
+    {
+      "id": 30984,
+      "name": "New",
+      "isComplete": true
     }
   ]
 }
